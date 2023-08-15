@@ -12,15 +12,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int _speed;
     [SerializeField] private AnimtionHandler _animtionHandler;
     [SerializeField] private Tilemap _tilemap;
-    [SerializeField] private Transform _hightLight;
+    [SerializeField] private Tilemap _interactiveTilemap;
+    [SerializeField] private Tile _hightLightTile;
     [SerializeField] private RuleTile _farmTile;
     private Vector2 _motionMove;
-    private Camera _camera;
-    
-    private void Start()
-    {
-        _camera = Camera.main;
-    }
+    private Vector3Int _preCellPosition;
 
     private void FixedUpdate()
     {
@@ -39,9 +35,12 @@ public class PlayerController : MonoBehaviour
     {
         if (_motionMove.magnitude > 0.2f)
         {
+            
+            _interactiveTilemap.SetTile(_preCellPosition, null);
             Vector2 hightLightPos = new Vector2(transform.position.x, transform.position.y) + _motionMove + Vector2.down;
-            Vector3Int cellPosition = _tilemap.WorldToCell(hightLightPos);
-            _hightLight.position = _tilemap.GetCellCenterWorld(cellPosition);
+            Vector3Int cellPosition = _interactiveTilemap.WorldToCell(hightLightPos);
+            _interactiveTilemap.SetTile(cellPosition, _hightLightTile);
+            _preCellPosition = cellPosition;
         }
     }
 
@@ -62,7 +61,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnClick()
     {
-        Vector3Int cellPosition = _tilemap.WorldToCell(_hightLight.position);
-        _tilemap.SetTile(cellPosition, _farmTile);
+        _tilemap.SetTile(_preCellPosition, _farmTile);
     }
 }
