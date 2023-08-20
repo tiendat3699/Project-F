@@ -1,0 +1,29 @@
+using UnityEngine;
+
+namespace Animation
+{
+    [RequireComponent(typeof(Animator))]
+    public class AnimationHandler : MonoBehaviour
+    {
+        [SerializeField] private Animator _animator;
+        private int _directionXHash, _directionYHash, _speedHash;
+
+        private void Awake()
+        {
+            _directionXHash = Animator.StringToHash("DirectionX");
+            _directionYHash = Animator.StringToHash("DirectionY");
+            _speedHash = Animator.StringToHash("Speed");
+        }
+
+        public void SetDirection(Vector2 dir)
+        {
+            _animator.SetFloat(_directionXHash, dir.x);
+            _animator.SetFloat(_directionYHash, dir.y);
+        }
+
+        public void SetSpeed(float speed)
+        {
+            _animator.SetFloat(_speedHash, speed);
+        }
+    }
+}
