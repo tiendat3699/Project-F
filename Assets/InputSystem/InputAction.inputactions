@@ -15,16 +15,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Mouse",
-                    "type": "Value",
-                    "id": "241b7762-2ddb-426f-95ab-c2cb94f098a9",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Click",
+                    "name": "Action",
                     "type": "Button",
                     "id": "c72619e4-6dfe-4758-a762-99abf17366ec",
                     "expectedControlType": "Button",
@@ -201,23 +192,12 @@
                 },
                 {
                     "name": "",
-                    "id": "b431cf3f-836a-466d-9bae-509884234dbc",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Mouse",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "c2f9e930-c1b3-4952-8c03-679f26400ad9",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Click",
+                    "action": "Action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

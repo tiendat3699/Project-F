@@ -54,11 +54,10 @@ namespace Player
             _motionMove = dir;
             _animationHandler.SetSpeed(dir.magnitude);
         }
-    
 
-        private void OnClick()
+        private void OnAction()
         {
-
+            
         }
 
         private bool CheckCellAvailable()
